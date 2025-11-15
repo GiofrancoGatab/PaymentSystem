@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment List</title>
+</head>
+<body>
+    <h2>Payment List</h2>
+    <a href="{% url 'add_payment' %}">Add New Payment</a>
+    <br><br>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Card Number</th>
+            <th>Cardholder Name</th>
+            <th>Amount</th>
+            <th>Action</th>
+            <th>Date</th>
+            <th>Controls</th>
+        </tr>
+        {% for p in payments %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.card_number }}</td>
+            <td>{{ p.cardholder_name }}</td>
+            <td>{{ p.amount }}</td>
+            <td>{{ p.action|title }}</td>
+            <td>{{ p.date }}</td>
+            <td>
+                <a href="{% url 'edit_payment' p.id %}">Edit</a> |
+                <a href="{% url 'delete_payment' p.id %}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No payments found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Report</title>
+</head>
+<body>
+
+<h1>Transaction History Report</h1>
+
+<a href="{% url 'payment_list' %}">⬅ Back to Payments</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Action</th>
+        <th>Date</th>
+        <th>Edit</th>
+    </tr>
+
+    {% for p in payments %}
+    <tr>
+        <td>{{ p.payment_id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.amount }}</td>
+        <td>{{ p.action|title }}</td>
+        <td>{{ p.date }}</td>
+        <td>
+            <a href="{% url 'edit_payment' p.id %}">✏ Edit</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="6">No history available.</td></tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Payment</title>
+</head>
+<body>
+    <h2>Add Payment</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="card_number">Card Number:</label><br>
+        <input type="text" id="card_number" name="card_number" required><br><br>
+
+        <label for="cardholder_name">Cardholder Name:</label><br>
+        <input type="text" id="cardholder_name" name="cardholder_name" required><br><br>
+
+        <label for="amount">Amount:</label><br>
+        <input type="number" step="0.01" id="amount" name="amount" required><br><br>
+
+        <label for="action">Action:</label><br>
+        <select id="action" name="action" required>
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+        </select><br><br>
+
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+
+        <button type="submit">Add Payment</button>
+    </form>
+    <br>
+    <a href="{% url 'payment_list' %}">Back to Payment List</a>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Payment</title>
+</head>
+<body>
+
+<h1>Edit Payment</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>ID:</label><br>
+    <input type="number" name="payment_id" value="{{ payment.payment_id }}" required><br><br>
+
+    <label>Name:</label><br>
+    <input type="text" name="name" value="{{ payment.name }}" required><br><br>
+
+    <label>Amount:</label><br>
+    <input type="number" step="0.01" name="amount" value="{{ payment.amount }}" required><br><br>
+
+    <label>Date:</label><br>
+    <input type="date" name="date" value="{{ payment.date }}" required><br><br>
+
+    <label>Action:</label><br>
+    <select name="action" required>
+        <option value="withdraw" {% if payment.action == "withdraw" %}selected{% endif %}>Withdraw</option>
+        <option value="deposit" {% if payment.action == "deposit" %}selected{% endif %}>Deposit</option>
+    </select><br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<br>
+<a href="{% url 'payment_list' %}">⬅ Back to Payments</a>
+
+</body>
+</html>
+
