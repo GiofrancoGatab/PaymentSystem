@@ -1,63 +1,43 @@
-/* Center everything vertically and horizontally */
+/* style.css */
+
+/* Center content for forms and tables */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-    background-color: #f7f7f7;
     margin: 0;
-    padding: 0;
+    background-color: #f5f5f5;
 }
 
-/* Container for form + table */
-.container {
+h2 {
     text-align: center;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 800px;
 }
 
-/* Style the form */
-form {
+form, table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     margin-bottom: 20px;
 }
 
-form input, form select {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* Style the table */
 table {
-    width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    width: 80%;
 }
 
-th, td {
-    padding: 12px;
+table th, table td {
     border: 1px solid #ddd;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: center;
 }
 
 a {
     text-decoration: none;
-    color: #4CAF50;
-    font-weight: bold;
+    color: #007bff;
 }
 
 a:hover {
